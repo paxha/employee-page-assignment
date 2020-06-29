@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('department', 'DepartmentController');
 Route::resource('shift', 'ShiftController');
+Route::resource('employee', 'EmployeeController');
