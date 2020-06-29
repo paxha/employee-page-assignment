@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Department
+                        Shift
                     </div>
 
                     <div class="card-body">
@@ -15,11 +15,12 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('department.store') }}">
+                        <form method="POST" action="{{ route('shift.store') }}">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Department Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
+                                <label for="name">Shift Name</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                                       name="name" value="{{ old('name') }}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -27,9 +28,20 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="short_name">Short Name</label>
-                                <input type="text" class="form-control @error('short_name') is-invalid @enderror" id="short_name" name="short_name" value="{{ old('short_name') }}">
-                                @error('short_name')
+                                <label for="start">Shift Start Time</label>
+                                <input type="datetime-local" class="form-control @error('start') is-invalid @enderror"
+                                       id="start" name="start" value="{{ old('start') }}">
+                                @error('start')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="end">Shift End Time</label>
+                                <input type="datetime-local" class="form-control @error('end') is-invalid @enderror"
+                                       id="end" name="end" value="{{ old('end') }}">
+                                @error('end')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -47,6 +47,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('department.index') }}">Department</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('shift.index') }}">Shift</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

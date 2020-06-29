@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Department
+                        Shift
                     </div>
 
                     <div class="card-body">
@@ -15,12 +15,13 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('department.update', $department->id) }}">
+                        <form method="POST" action="{{ route('shift.update', $shift->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <label for="name">Department Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $department->name }}">
+                                <label for="name">Shift Name</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                                       name="name" value="{{ $shift->name }}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -28,9 +29,20 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="short_name">Short Name</label>
-                                <input type="text" class="form-control @error('short_name') is-invalid @enderror" id="short_name" name="short_name" value="{{ $department->short_name }}">
-                                @error('short_name')
+                                <label for="start">Shift Start Time</label>
+                                <input type="datetime-local" class="form-control @error('start') is-invalid @enderror"
+                                       id="start" name="start" value="{{ $shift->start->format('Y-m-d\Th:m:s') }}">
+                                @error('start')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="end">Shift End Time</label>
+                                <input type="datetime-local" class="form-control @error('end') is-invalid @enderror"
+                                       id="end" name="end" value="{{ $shift->end->format('Y-m-d\Th:m:s') }}">
+                                @error('end')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
